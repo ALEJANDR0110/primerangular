@@ -1,0 +1,94 @@
+<h1>Directivas Deportes Component</h1>
+
+@for (num of numeros; track num) {
+    <h6 
+        [class.par]=" num % 2 == 0"
+        [class.impar]=" num % 2 != 0" 
+    >
+        {{num}}
+    </h6>
+}
+
+<ul>
+    @for (num of numeros; track num) {
+        <li [ngClass]="{
+            par: num % 2 == 0,
+            impar : num % 2 == 1
+        }"
+        >
+            {{num}}
+        </li>
+    }
+</ul>
+
+<h2>Numnero de deportes: {{sports.length}}</h2>
+@if (sports.length < 4) {
+    <h2 style="color: red">
+        Tenemos menos de 4 deportes
+    </h2>
+}@else {
+    <h2 style="color: green">
+        Tenemos mas de 4 deportes
+    </h2>
+}
+
+<ul>
+    @for (deporte of sports; track deporte; let i= $index) {
+        <li style="color: fuchsia">
+            {{i}} - {{deporte}}
+        </li>
+    }@empty {
+        <h2 style="color:red">Sin deporte</h2>
+    }
+</ul>
+
+<!-- ESTE EJEMPLO DE IF ESTA VIEJO, YA NO SE USA -->
+<div *ngIf="sports.length <= 5; else condicionales">
+    <p style="color: red">
+        Tenemos menos de 5 deportes
+    </p>
+</div>
+
+<ng-template #condicionales>
+    <p style="color:blue">
+        tienes mas de 5 deportes!!!
+    </p>
+</ng-template>
+
+<ul>
+    <li *ngFor="let deporte of sports" >
+        {{deporte}}
+    </li>
+</ul>
+
+<ng-container *ngTemplateOutlet="plantillacodigo"></ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #plantillacodigo>
+    <p style="color:blue">
+        Esto es una plantilla HTML
+        con mucho codigooooooooooo
+        oooooooooooooooooooooooooooo
+        oooooooooooooooooooooooooooooo
+        ooooooooooooooooooooooooooooooo
+        ooooooooooooooooooooooooooooooo
+        ooooooooooooooooooooooooooooo
+        ooooooooooooooooooooooooooo
+        ooooooooooooooooooooooooooooooo
+        ooooooooooooooooooooooooooooooo
+        ooooooooooooooooooooooooooooooo
+
+    </p>
+</ng-template>

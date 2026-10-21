@@ -1,0 +1,24 @@
+<p>tabla-multiplicar-binding works!</p>
+<form #tablaForm="ngForm" (ngSubmit)="generarTabla()">
+    <label>Numero: </label>
+    <input type="number" #cajanumero /> <br>
+    <button>Generar tabla</button>
+</form>
+
+<h3>Los resultados de la tabla de {{cajanumero.value}} son:</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Operacion</th>
+            <th>Resultado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (obj of tablaMult; track obj) {
+            <tr>
+                <td>{{obj.operacion}}</td>
+                <td>{{obj.resultado}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

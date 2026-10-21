@@ -1,0 +1,13 @@
+<p>lista-multiplicar-referencia works!</p>
+<form #listaForm="ngForm" (ngSubmit)="generarLista()">
+    <label>Numero: </label>
+    <input type="number" #cajanumero /> <br>
+    <button>Generar lista</button>
+</form>
+
+<h3>Los resultados de la tabla de {{cajanumero.value}} son:</h3>
+<ul>
+    @for (num of listaMult; track num) {
+        <li>{{num}}</li>
+    }
+</ul>
